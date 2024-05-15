@@ -4,6 +4,7 @@ package se.kth.iv1350.seminar4.tests.viewTest;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 
 import org.junit.After;
@@ -20,7 +21,7 @@ public class ViewTest {
     private PrintStream originalSysOut;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws IOException{
         Controller contr = new Controller();
         instanceToTest = new View(contr);
 
@@ -40,7 +41,7 @@ public class ViewTest {
     }
 
     @Before
-    public void settingUp() {
+    public void settingUp() throws IOException {
         Controller contr = new Controller();
         instanceToTest = new View(contr);
 

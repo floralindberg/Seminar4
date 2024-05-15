@@ -10,6 +10,7 @@ import se.kth.iv1350.seminar4.source.controller.Controller;
 import se.kth.iv1350.seminar4.source.integration.ExternalAccountingSystem;
 import se.kth.iv1350.seminar4.source.integration.ExternalInventorySystem;
 import se.kth.iv1350.seminar4.source.integration.Item;
+import se.kth.iv1350.seminar4.source.model.ItemNotFoundInInventoryException;
 import se.kth.iv1350.seminar4.source.model.Payment;
 import se.kth.iv1350.seminar4.source.model.Sale;
 
@@ -49,7 +50,7 @@ public class ContrTest {
         }
 
         @Test
-        public void testAddItem() {
+        public void testAddItem() throws ItemNotFoundInInventoryException {
 
             contr.enterItemIdentifier(codeOfItem1);
             
@@ -66,7 +67,7 @@ public class ContrTest {
         }
         
         @Test
-        public void testPay() {
+        public void testPay() throws ItemNotFoundInInventoryException {
             double totalAmount = 100;
             double paidAmount = 100;
             ExternalAccountingSystem externalAccountingSystem = new ExternalAccountingSystem();

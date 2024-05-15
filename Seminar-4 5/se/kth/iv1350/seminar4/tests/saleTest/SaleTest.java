@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import se.kth.iv1350.seminar4.source.controller.Controller;
 import se.kth.iv1350.seminar4.source.integration.Item;
 import se.kth.iv1350.seminar4.source.integration.ItemDTO;
+import se.kth.iv1350.seminar4.source.model.ItemNotFoundInInventoryException;
 import se.kth.iv1350.seminar4.source.model.Sale;
 
 public class SaleTest {
@@ -33,21 +34,21 @@ public class SaleTest {
     }
 
     @Test
-    public void testRegisterAllItems() {
+    public void testRegisterAllItems() throws ItemNotFoundInInventoryException {
         contr.enterItemIdentifier(codeOfItem1);
         contr.enterItemIdentifier(codeOfItem2);
         assertEquals(2, sale.getAllItems().size(), "Unexpected number of items in sale after registering two items");
     }
 
     @Test
-    public void testGetItemFromList() {
+    public void testGetItemFromList() throws ItemNotFoundInInventoryException {
         contr.enterItemIdentifier(codeOfItem1);
         Item item = sale.getItemFromList(0);
         assertEquals(codeOfItem1, item.getCodeOfItem(), "Unexpected item code returned");
     }
 
     @Test
-    public void testCalculateTotalPrice() {
+    public void testCalculateTotalPrice() throws ItemNotFoundInInventoryException {
         contr.enterItemIdentifier(codeOfItem1);
         contr.enterItemIdentifier(codeOfItem2);
         double totalPrice = sale.calculateTotalPrice();
@@ -62,7 +63,7 @@ public class SaleTest {
     }
 
     @Test
-    public void testCalculateTotalVAT() {
+    public void testCalculateTotalVAT() throws ItemNotFoundInInventoryException {
         contr.enterItemIdentifier(codeOfItem1);
         contr.enterItemIdentifier(codeOfItem2);
         double totalVAT = sale.calculateTotalAmountVAT();
@@ -75,14 +76,14 @@ public class SaleTest {
     }
 
     @Test
-    public void testGetAllItems() {
+    public void testGetAllItems() throws ItemNotFoundInInventoryException {
         contr.enterItemIdentifier(codeOfItem1);
         contr.enterItemIdentifier(codeOfItem2);
         assertEquals(2, sale.getAllItems().size(), "Unexpected number of items in sale");
     }
 
     @Test
-    public void testGetReceiptArray() {
+    public void testGetReceiptArray() throws ItemNotFoundInInventoryException {
         contr.enterItemIdentifier(codeOfItem1);
         contr.enterItemIdentifier(codeOfItem2);
         assertEquals(2, sale.getAllItems().size(), "Unexpected number of items in receipt array");

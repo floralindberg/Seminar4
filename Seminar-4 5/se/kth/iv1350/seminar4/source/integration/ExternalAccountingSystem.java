@@ -10,7 +10,7 @@ import java.util.List;
 public class ExternalAccountingSystem {
     private final double beginningAmountInRegister = 100;
     private double totalAmountInRegister;
-    private List<TotalIncomeObserver> totalIncomeObservers = new ArrayList<>();
+    private List<TotalRevenueObserver> totalRevenueObservers = new ArrayList<>();
 
     /**
      * Register receives the beginning amount in the register.
@@ -35,8 +35,8 @@ public class ExternalAccountingSystem {
      * @param observers The list of observers.
      */
 
-    public void addTotalIncomeObservers(List<TotalIncomeObserver> observers) {
-        totalIncomeObservers.addAll(observers);
+    public void addTotalRevenueObserversToAccounting(List<TotalRevenueObserver> observers) {
+        totalRevenueObservers.addAll(observers);
     }
 
     /**
@@ -44,8 +44,8 @@ public class ExternalAccountingSystem {
      */
 
     private void notifyObservers() {
-        for (TotalIncomeObserver obs : totalIncomeObservers) {
-            obs.updateTotalIncome(totalAmountInRegister - beginningAmountInRegister);
+        for (TotalRevenueObserver obs : totalRevenueObservers) {
+            obs.updateTotalRevenue(totalAmountInRegister - beginningAmountInRegister);
         }
     }
 

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import se.kth.iv1350.seminar4.source.controller.Controller;
 import se.kth.iv1350.seminar4.source.model.ItemNotFoundInInventoryException;
+import se.kth.iv1350.seminar4.source.model.NotEligibleForDiscountException;
 import se.kth.iv1350.seminar4.source.util.*;
 
 
@@ -25,9 +26,9 @@ public class View {
         this.totalRevenueView = new TotalRevenueView();
         this.totalRevenueFileOutput = TotalRevenueFileOutput.getTotalRevenueFileOutput();
         
-        contr.addTotalIncomeObserver(totalRevenueView);
-        contr.addTotalIncomeObserver(totalRevenueFileOutput);
-        contr.addTotalIncomeObserver();
+        contr.addTotalRevenueObserver(totalRevenueView);
+        contr.addTotalRevenueObserver(totalRevenueFileOutput);
+        contr.addTotalRevenueObservers();
 
 	}
 
@@ -65,11 +66,19 @@ public class View {
             writeToLog(e);
         }
         System.out.println(contr.showTotalPriceAndVAT());
-        
-        
+
         double totalPrice = contr.endSale();
+        
         System.out.println("Customer wants discount");
-        totalPrice = contr.checkDiscount(19201110);
+        try {
+            totalPrice = contr.checkDiscount(19201110);
+            System.err.println("Discount has been applied");
+
+        } catch (NotEligibleForDiscountException disExc) {
+            
+            System.out.print(disExc.getMessage() + "\n");
+            
+}
         System.out.println("End Sale: ");
         System.out.println("Total cost ( incl VAT ): "+ String.format("%.2f",totalPrice) + " SEK");
         System.out.println("Customer pays: "+ 100 + " SEK");
@@ -113,8 +122,17 @@ public class View {
         
         
         totalPrice = contr.endSale();
+        
         System.out.println("Customer wants discount");
-        totalPrice = contr.checkDiscount(19721030);
+        try {
+            totalPrice = contr.checkDiscount(19721110);
+            System.err.println("Discount has been applied");
+            
+        } catch (NotEligibleForDiscountException disExc) {
+        
+            System.out.print(disExc.getMessage() + "\n");
+            
+}
         System.out.println("End Sale: ");
         System.out.println("Total cost ( incl VAT ): "+ String.format("%.2f",totalPrice) + " SEK");
         System.out.println("Customer pays: "+ 100 + " SEK");

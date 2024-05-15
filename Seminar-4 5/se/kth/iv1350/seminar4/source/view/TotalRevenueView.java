@@ -1,31 +1,31 @@
 package se.kth.iv1350.seminar4.source.view;
 
-import se.kth.iv1350.seminar4.source.integration.TotalIncomeObserver;
+import se.kth.iv1350.seminar4.source.integration.TotalRevenueObserver;
 
 /**
  * A simple view that displays the total income.
  */
 
-public class TotalRevenueView implements TotalIncomeObserver {
+public class TotalRevenueView implements TotalRevenueObserver {
 
-    private double totalIncome;
+    private double totalRevenue;
 
     /**
      * Creates an instance of the TotalRevenueView.
      */
 
     public TotalRevenueView() {
-        totalIncome = 0;
+        totalRevenue = 0;
     }
 
     /**
      * Updates the total income.
-     * @param totalIncome The total income.
+     * @param totalRevenue The total income.
      */
 
     @Override
-    public void updateTotalIncome(double totalIncome) {
-        this.totalIncome = totalIncome;
+    public void updateTotalRevenue(double totalRevenue) {
+        this.totalRevenue = totalRevenue;
         printCurrentState();
     }
 
@@ -34,6 +34,6 @@ public class TotalRevenueView implements TotalIncomeObserver {
      */
 
     private void printCurrentState() {
-        System.out.println("Total income: " + String.format("%.2f", totalIncome));
+        System.out.println("Total Revenue: " + String.format("%.2f", totalRevenue));
     }
 }

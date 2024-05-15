@@ -4,14 +4,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import se.kth.iv1350.seminar4.source.integration.TotalIncomeObserver;
+import se.kth.iv1350.seminar4.source.integration.TotalRevenueObserver;
 
 /**
  * Logs the total income to a file.
  */
 
-public class TotalRevenueFileOutput implements TotalIncomeObserver {
-    private static final String LOG_FILE_NAME = "totalIncome.txt";
+public class TotalRevenueFileOutput implements TotalRevenueObserver {
+    private static final String LOG_FILE_NAME = "totalRevenue.txt";
     private static final TotalRevenueFileOutput INSTANCE = new TotalRevenueFileOutput();
     private PrintWriter logFile;
 
@@ -39,11 +39,11 @@ public class TotalRevenueFileOutput implements TotalIncomeObserver {
 
     /**
      * Updates the total income.
-     * @param totalIncome The total income.
+     * @param totalRevenue The total income.
      */
 
     @Override
-    public void updateTotalIncome(double totalIncome) {
-        logFile.println("Total income: " + String.format("%.2f", totalIncome));
+    public void updateTotalRevenue(double totalRevenue) {
+        logFile.println("Total Revenue: " + String.format("%.2f", totalRevenue));
     }
 }

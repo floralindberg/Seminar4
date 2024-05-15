@@ -171,7 +171,7 @@ public class Sale {
      * @return the price after the discount
      */
 
-    public double applyDiscounts(double personalID, DiscountDTO discountDTO) {
+    public double applyDiscounts(int personalID, DiscountDTO discountDTO) {
 
         double totalPrice = calculateTotalPrice();
 
@@ -188,13 +188,14 @@ public class Sale {
      * @return the total price of the sale with the discount
      */
 
-    public double checkIfEligibleForDiscount(double personalID) throws IllegalArgumentException {
+    public double checkIfEligibleForDiscount(int personalID) throws NotEligibleForDiscountException {
 
         if(personalID <= 19590101){
             return applyDiscounts(personalID, getDiscountDTO());
         }
-    
-        throw new IllegalArgumentException("Customer is not eligible for discount");
+        else {
+        throw new NotEligibleForDiscountException(personalID);
     }
+}
 
 }

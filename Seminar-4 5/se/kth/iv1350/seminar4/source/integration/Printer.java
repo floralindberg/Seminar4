@@ -14,7 +14,7 @@ public class Printer {
 
         System.out.println("Time of sale:" + time);
         System.out.println(info);
-        System.out.println("Amount in Register:" + amountInRegister);
+        System.out.println("Amount in Register:" + String.format("%.2f",amountInRegister));
 
     }
 

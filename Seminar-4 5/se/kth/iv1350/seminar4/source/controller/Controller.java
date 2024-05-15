@@ -9,8 +9,9 @@ import se.kth.iv1350.seminar4.source.integration.ExternalSystemCreator;
 import se.kth.iv1350.seminar4.source.integration.Item;
 import se.kth.iv1350.seminar4.source.integration.ItemDTO;
 import se.kth.iv1350.seminar4.source.integration.Printer;
-import se.kth.iv1350.seminar4.source.integration.TotalIncomeObserver;
+import se.kth.iv1350.seminar4.source.integration.TotalRevenueObserver;
 import se.kth.iv1350.seminar4.source.model.ItemNotFoundInInventoryException;
+import se.kth.iv1350.seminar4.source.model.NotEligibleForDiscountException;
 import se.kth.iv1350.seminar4.source.model.Payment;
 import se.kth.iv1350.seminar4.source.model.Sale;
 
@@ -25,7 +26,7 @@ public class Controller {
     private ExternalInventorySystem externalInventorySystem;
     private ExternalAccountingSystem externalAccountingSystem;
     private Printer printer;
-    private List<TotalIncomeObserver> totalIncomeObservers = new ArrayList<>();
+    private List<TotalRevenueObserver> totalRevenueObservers = new ArrayList<>();
 
     /**
      * Constructor for the Controller class.
@@ -39,9 +40,23 @@ public class Controller {
         this.printer = Printer.getInstance();
 	}
 
-    public void addTotalIncomeObserver() {
-        externalAccountingSystem.addTotalIncomeObservers(totalIncomeObservers);
+    /**
+     * Adds an observer to the list of observers.
+     * @param observer the observer to be added to the list.
+     */
+
+    public void addTotalRevenueObserver(TotalRevenueObserver observer) {
+        totalRevenueObservers.add(observer);
+    }
+
+    /**
+     * Adds observer to the list of observers.
+     */
+
+    public void addTotalRevenueObservers() {
+        externalAccountingSystem.addTotalRevenueObserversToAccounting(totalRevenueObservers);
 }
+
     /**
      * Starts a new sale.
      * This method have to be called before anything is registered in the sale.
@@ -128,23 +143,15 @@ public class Controller {
     }
 
     /**
-     * Adds an observer to the list of observers.
-     * @param observer the observer to be added to the list.
+     * Method to check if the customer is eligible for discount.
+     * @param personalID the personal ID of the customer.
+     * @return the total price with discount.
+     * @return the total price without discount.
      */
 
-    public void addTotalIncomeObserver(TotalIncomeObserver observer) {
-        totalIncomeObservers.add(observer);
-    }
+    public double checkDiscount(int personalID) throws NotEligibleForDiscountException {
 
-    public double checkDiscount(double personalID){
+        return sale.checkIfEligibleForDiscount(personalID);
 
-        try {
-            return sale.checkIfEligibleForDiscount(personalID);
-
-        } catch (IllegalArgumentException e) {
-
-            
-            return sale.calculateTotalPrice();
-        }
     }
 }

@@ -158,7 +158,7 @@ public class Sale {
      * @return the discount DTO
      */
 
-    public DiscountDTO createDiscountDTO(){
+    public DiscountDTO getDiscountDTO(){
 
         return new DiscountDTO(calculateTotalPrice(), calculateAmountOfItems());
 
@@ -191,7 +191,7 @@ public class Sale {
     public double checkIfEligibleForDiscount(double personalID) throws IllegalArgumentException {
 
         if(personalID <= 19590101){
-            return applyDiscounts(personalID, createDiscountDTO());
+            return applyDiscounts(personalID, getDiscountDTO());
         }
     
         throw new IllegalArgumentException("Customer is not eligible for discount");

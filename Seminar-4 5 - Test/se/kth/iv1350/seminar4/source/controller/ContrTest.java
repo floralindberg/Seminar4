@@ -1,4 +1,4 @@
-package se.kth.iv1350.seminar4.test.controller;
+package se.kth.iv1350.seminar4.source.controller;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.After;

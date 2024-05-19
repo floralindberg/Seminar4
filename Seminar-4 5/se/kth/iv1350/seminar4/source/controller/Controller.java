@@ -80,7 +80,7 @@ public class Controller {
      * @param codeOfItem the information sent in to check if item exists i inventory.
      */
     public ItemDTO enterItemIdentifier(int codeOfItem) throws ItemNotFoundInInventoryException, InventoryFailureException {
-        if (externalInventorySystem.fakeInventorySystem.isEmpty()) {
+        if (externalInventorySystem.fakeInventorySystem.isEmpty() || codeOfItem == 123) {
             throw new InventoryFailureException();
         }
         else if (externalInventorySystem.getItemCopyFromInventory(codeOfItem) == null) {

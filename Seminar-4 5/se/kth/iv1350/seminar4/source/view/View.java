@@ -102,7 +102,7 @@ public class View {
 
         System.out.println("add 1 item with ID 222");
         try {
-            System.out.println(contr.enterItemIdentifier(222) + "\n");
+            System.out.println(contr.enterItemIdentifier(123) + "\n");
         } catch (ItemNotFoundInInventoryException e) {
             writeToLog(e);
         } catch (InventoryFailureException exc) {

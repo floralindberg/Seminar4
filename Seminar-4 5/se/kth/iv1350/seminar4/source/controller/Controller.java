@@ -12,7 +12,7 @@ import se.kth.iv1350.seminar4.source.integration.ItemDTO;
 import se.kth.iv1350.seminar4.source.integration.ItemNotFoundInInventoryException;
 import se.kth.iv1350.seminar4.source.integration.Printer;
 import se.kth.iv1350.seminar4.source.integration.TotalRevenueObserver;
-import se.kth.iv1350.seminar4.source.model.NotEligibleForDiscountException;
+import se.kth.iv1350.seminar4.source.model.notEligibleForDiscountException;
 import se.kth.iv1350.seminar4.source.model.Payment;
 import se.kth.iv1350.seminar4.source.model.Sale;
 
@@ -81,11 +81,11 @@ public class Controller {
      */
     public ItemDTO enterItemIdentifier(int codeOfItem) throws ItemNotFoundInInventoryException, InventoryFailureException {
         if (externalInventorySystem.fakeInventorySystem.isEmpty()) {
-           throw new InventoryFailureException();
-       }
-       else if (externalInventorySystem.getItemCopyFromInventory(codeOfItem) == null) {
+            throw new InventoryFailureException();
+        }
+        else if (externalInventorySystem.getItemCopyFromInventory(codeOfItem) == null) {
         throw new ItemNotFoundInInventoryException(codeOfItem);
-       }
+    }
     
         else {
         Item item = externalInventorySystem.getItemCopyFromInventory(codeOfItem);
@@ -157,16 +157,13 @@ public class Controller {
      * @return the total price without discount.
      */
 
-    public double checkDiscount(int personalID) throws NotEligibleForDiscountException {
+    public double checkDiscount(int personalID) throws notEligibleForDiscountException {
 
         return sale.checkIfEligibleForDiscount(personalID);
 
     }
-
-
-public void clearInventory () {
-    externalInventorySystem.clearInventory();
-   
-}
-
+    
+    public void clearInventory () {
+        externalInventorySystem.clearInventory();
+    }
 }

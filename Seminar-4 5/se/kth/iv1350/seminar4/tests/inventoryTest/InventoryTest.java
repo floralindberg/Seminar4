@@ -17,9 +17,8 @@ public class InventoryTest {
 
     @BeforeEach
     public void setUp() {
-
         externalInventorySystem = ExternalInventorySystem.getInstance();
-        externalInventorySystem.resetInventory();
+        externalInventorySystem.resetInvetory();
         listOfAllItems = new ArrayList<>();
     }
 

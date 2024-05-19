@@ -9,10 +9,13 @@ import org.junit.jupiter.api.BeforeEach;
 import se.kth.iv1350.seminar4.source.controller.Controller;
 import se.kth.iv1350.seminar4.source.integration.ExternalAccountingSystem;
 import se.kth.iv1350.seminar4.source.integration.ExternalInventorySystem;
+import se.kth.iv1350.seminar4.source.integration.InventoryException;
+import se.kth.iv1350.seminar4.source.integration.InventoryFailureException;
 import se.kth.iv1350.seminar4.source.integration.Item;
 import se.kth.iv1350.seminar4.source.integration.ItemNotFoundInInventoryException;
 import se.kth.iv1350.seminar4.source.model.Payment;
 import se.kth.iv1350.seminar4.source.model.Sale;
+import se.kth.iv1350.seminar4.source.model.notEligibleForDiscountException;
 
 public class ContrTest {
     private Sale sale;
@@ -45,7 +48,6 @@ public class ContrTest {
             this.codeOfItem1 = 111;
             this.codeOfItem2 = 222;
             externalInventorySystem = ExternalInventorySystem.getInstance();
-            externalInventorySystem.resetInventory();
         }
 
         @Test
@@ -64,6 +66,47 @@ public class ContrTest {
             assertEquals(2, sale.getAllItems().size(), "Unexpected quantity of items in sale");
             assertEquals(2, sale.getAllItems().get(0).getQuantity(), "Unexpected quantity of the first item in the sale");
         }
+
+        @Test
+        public void testItemNotFoundInInventoryException() throws ItemNotFoundInInventoryException {
+
+            assertDoesNotThrow(() -> {
+                contr.enterItemIdentifier(111);
+            });
+
+            assertThrows(ItemNotFoundInInventoryException.class, () -> {
+                contr.enterItemIdentifier(444);
+            });
+
+        }
+
+        @Test
+        public void testInventoryFailureException() throws InventoryFailureException {
+
+            assertDoesNotThrow(() -> {
+                contr.enterItemIdentifier(111);
+            });
+
+            contr.clearInventory();
+
+            assertThrows(InventoryFailureException.class, () -> {
+                contr.enterItemIdentifier(111);
+            });
+        }
+
+        @Test public void notEligibleForDiscountException() throws notEligibleForDiscountException {
+
+            assertDoesNotThrow(() -> {
+                contr.checkDiscount(19241201);
+            });
+
+            assertThrows(notEligibleForDiscountException.class, () -> {
+                contr.checkDiscount(20011020);
+            });
+
+        }
+
+        
         
         @Test
         public void testPay() throws ItemNotFoundInInventoryException {

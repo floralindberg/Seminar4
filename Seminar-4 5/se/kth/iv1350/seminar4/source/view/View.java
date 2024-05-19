@@ -6,7 +6,7 @@ import se.kth.iv1350.seminar4.source.controller.Controller;
 import se.kth.iv1350.seminar4.source.integration.ExternalInventorySystem;
 import se.kth.iv1350.seminar4.source.integration.InventoryFailureException;
 import se.kth.iv1350.seminar4.source.integration.ItemNotFoundInInventoryException;
-import se.kth.iv1350.seminar4.source.model.NotEligibleForDiscountException;
+import se.kth.iv1350.seminar4.source.model.notEligibleForDiscountException;
 import se.kth.iv1350.seminar4.source.util.*;
 
 
@@ -82,7 +82,7 @@ public class View {
             totalPrice = contr.checkDiscount(19201110);
             System.err.println("Discount has been applied");
 
-        } catch (NotEligibleForDiscountException disExc) {
+        } catch (notEligibleForDiscountException disExc) {
             
             System.out.print(disExc.getMessage() + "\n");
             
@@ -142,7 +142,7 @@ public class View {
             totalPrice = contr.checkDiscount(19721110);
             System.err.println("Discount has been applied");
             
-        } catch (NotEligibleForDiscountException disExc) {
+        } catch (notEligibleForDiscountException disExc) {
         
             System.out.print(disExc.getMessage() + "\n");
             
@@ -248,14 +248,14 @@ public class View {
         }
         System.out.println(contr.showTotalPriceAndVAT());
 
-         totalPrice = contr.endSale();
+        totalPrice = contr.endSale();
         
         System.out.println("Customer wants discount");
         try {
             totalPrice = contr.checkDiscount(19201110);
             System.err.println("Discount has been applied");
 
-        } catch (NotEligibleForDiscountException disExc) {
+        } catch (notEligibleForDiscountException disExc) {
             
             System.out.print(disExc.getMessage() + "\n");
             

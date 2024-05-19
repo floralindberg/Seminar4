@@ -187,13 +187,13 @@ public class Sale {
      * @return the total price of the sale with the discount
      */
 
-    public double checkIfEligibleForDiscount(int personalID) throws NotEligibleForDiscountException {
+    public double checkIfEligibleForDiscount(int personalID) throws notEligibleForDiscountException {
 
         if(personalID <= 19590101){
             return applyDiscounts(personalID, getDiscountDTO());
         }
         else {
-        throw new NotEligibleForDiscountException(personalID);
+        throw new notEligibleForDiscountException(personalID);
     }
 }
 

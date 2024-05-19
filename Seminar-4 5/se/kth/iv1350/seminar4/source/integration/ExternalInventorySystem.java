@@ -58,7 +58,7 @@ public class ExternalInventorySystem {
     }
 
         /**
-         * Creates a copy with all information about the item 
+         * Creates a copy with all information about the item
          * @param codeOfItem is the information sent in to search in the inventory system
          * @return The copy of the item if found in inventory system
          */
@@ -108,13 +108,18 @@ public class ExternalInventorySystem {
             }
         }
 
-         /**
+        /**
          * Method to clear the inventory system.
          */
 
-         public void clearInventory (){
+        public void clearInventory (){
             fakeInventorySystem.clear();
 
+        }
+
+        public void resetInvetory(){
+            clearInventory();
+            initializeInventory();
         }
     }
 

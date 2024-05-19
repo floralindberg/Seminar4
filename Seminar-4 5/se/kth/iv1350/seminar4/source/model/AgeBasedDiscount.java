@@ -5,15 +5,15 @@ package se.kth.iv1350.seminar4.source.model;
  */
 
 public class AgeBasedDiscount implements Discount {
-    private double personalID;
+    private int personalID;
 
     /**
      * Creates an instance of the AgeBasedDiscount class.
      * @param personalID The personal ID of the customer.
      */
 
-    public AgeBasedDiscount(double personalID) {
-        this.personalID = personalID;
+    public AgeBasedDiscount(int ID) {
+        this.personalID = ID;
     }
 
     /**

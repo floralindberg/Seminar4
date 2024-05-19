@@ -125,7 +125,7 @@ public class View {
         
         System.out.println("Customer wants discount");
         try {
-            totalPrice = contr.checkDiscount(19721110);
+            totalPrice = contr.checkDiscount(19331110);
             System.err.println("Discount has been applied");
             
         } catch (NotEligibleForDiscountException disExc) {

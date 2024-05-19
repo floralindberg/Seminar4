@@ -173,11 +173,8 @@ public class Sale {
 
     public double applyDiscounts(int personalID, DiscountDTO discountDTO) {
 
-        double totalPrice = calculateTotalPrice();
-
-        Discount d = new CompositeDiscount(Arrays.asList(new AgeBasedDiscount(personalID), new ItemBasedDiscount()));
-        double discount = d.calculateDiscount(discountDTO);
-        double priceAfterDiscount = totalPrice - discount;
+        CompositeDiscount compositeDiscount = new CompositeDiscount(Arrays.asList(new AgeBasedDiscount(personalID), new ItemBasedDiscount()));
+        double priceAfterDiscount = compositeDiscount.applyDiscount(personalID, discountDTO);
 
         return priceAfterDiscount;
     

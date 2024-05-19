@@ -9,7 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import se.kth.iv1350.seminar4.source.controller.Controller;
 import se.kth.iv1350.seminar4.source.integration.ExternalAccountingSystem;
 import se.kth.iv1350.seminar4.source.integration.ExternalInventorySystem;
-import se.kth.iv1350.seminar4.source.integration.InventoryException;
 import se.kth.iv1350.seminar4.source.integration.InventoryFailureException;
 import se.kth.iv1350.seminar4.source.integration.Item;
 import se.kth.iv1350.seminar4.source.integration.ItemNotFoundInInventoryException;

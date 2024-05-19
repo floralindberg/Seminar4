@@ -3,7 +3,6 @@ package se.kth.iv1350.seminar4.source.view;
 import java.io.IOException;
 
 import se.kth.iv1350.seminar4.source.controller.Controller;
-import se.kth.iv1350.seminar4.source.integration.ExternalInventorySystem;
 import se.kth.iv1350.seminar4.source.integration.InventoryFailureException;
 import se.kth.iv1350.seminar4.source.integration.ItemNotFoundInInventoryException;
 import se.kth.iv1350.seminar4.source.model.notEligibleForDiscountException;

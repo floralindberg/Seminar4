@@ -3,6 +3,7 @@ package se.kth.iv1350.seminar4.source.model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import se.kth.iv1350.seminar4.source.integration.Item;
 
@@ -13,7 +14,6 @@ import se.kth.iv1350.seminar4.source.integration.Item;
 
 public class Sale {
     private ArrayList<Item> listOfAllItems;
-    private ArrayList<Discount> discountList;
     private Receipt receipt;
 
 
@@ -173,8 +173,11 @@ public class Sale {
 
     public double applyDiscounts(int personalID, DiscountDTO discountDTO) {
 
-        CompositeDiscount compositeDiscount = new CompositeDiscount(discountList);
-        double priceAfterDiscount = compositeDiscount.applyDiscount(personalID, discountDTO);
+        double totalPrice = calculateTotalPrice();
+
+        Discount d = new CompositeDiscount(Arrays.asList(new AgeBasedDiscount(personalID), new ItemBasedDiscount()));
+        double discount = d.calculateDiscount(discountDTO);
+        double priceAfterDiscount = totalPrice - discount;
 
         return priceAfterDiscount;
     
@@ -188,17 +191,7 @@ public class Sale {
     public double checkIfEligibleForDiscount(int personalID) throws NotEligibleForDiscountException {
 
         if(personalID <= 19590101){
-            discountList = new ArrayList<Discount>();
-            discountList.add(new AgeBasedDiscount(personalID));
-            discountList.add(new ItemBasedDiscount());
             return applyDiscounts(personalID, getDiscountDTO());
-        }
-
-        else if(personalID >= 20040101 && personalID <= 20111231){
-            discountList = new ArrayList<Discount>();
-            discountList.add(new ItemBasedDiscount());
-            return applyDiscounts(personalID, getDiscountDTO());
-            
         }
         else {
         throw new NotEligibleForDiscountException(personalID);

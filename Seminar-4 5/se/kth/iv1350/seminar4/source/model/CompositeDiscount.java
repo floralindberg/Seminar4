@@ -1,5 +1,6 @@
 package se.kth.iv1350.seminar4.source.model;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -15,8 +16,8 @@ public class CompositeDiscount implements Discount {
      * @param listOfDiscounts The list of discounts that are to be applied.
      */
 
-    public CompositeDiscount(List<Discount> discounts) {
-        this.listOfDiscounts = discounts;
+    public CompositeDiscount(List<Discount> listOfDiscounts) {
+        this.listOfDiscounts = listOfDiscounts;
     }
 
     /**
@@ -40,13 +41,15 @@ public class CompositeDiscount implements Discount {
      * Applies the discount to the total price.
      * @param personalID The personal ID of the customer.
      * @param discountDTO The discount data transfer object.
-     * @return The price after the discount has been applied.
+     * @return The total price after the discount has been applied.
      */
     
-    public double applyDiscount(int personalID, DiscountDTO discountDTO){
+    public double applyDiscount(double personalID, DiscountDTO discountDTO){
 
         double totalPrice = discountDTO.getTotalPrice();
-        double discount = this.calculateDiscount(discountDTO);
+        
+        Discount d = new CompositeDiscount(Arrays.asList(new AgeBasedDiscount(personalID), new ItemBasedDiscount()));
+        double discount = d.calculateDiscount(discountDTO);
         double priceAfterDiscount = totalPrice - discount;
         return priceAfterDiscount;
 }

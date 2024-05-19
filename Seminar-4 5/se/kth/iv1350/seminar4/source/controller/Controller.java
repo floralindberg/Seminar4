@@ -6,11 +6,12 @@ import java.util.List;
 import se.kth.iv1350.seminar4.source.integration.ExternalAccountingSystem;
 import se.kth.iv1350.seminar4.source.integration.ExternalInventorySystem;
 import se.kth.iv1350.seminar4.source.integration.ExternalSystemCreator;
+import se.kth.iv1350.seminar4.source.integration.InventoryFailureException;
 import se.kth.iv1350.seminar4.source.integration.Item;
 import se.kth.iv1350.seminar4.source.integration.ItemDTO;
+import se.kth.iv1350.seminar4.source.integration.ItemNotFoundInInventoryException;
 import se.kth.iv1350.seminar4.source.integration.Printer;
 import se.kth.iv1350.seminar4.source.integration.TotalRevenueObserver;
-import se.kth.iv1350.seminar4.source.model.ItemNotFoundInInventoryException;
 import se.kth.iv1350.seminar4.source.model.NotEligibleForDiscountException;
 import se.kth.iv1350.seminar4.source.model.Payment;
 import se.kth.iv1350.seminar4.source.model.Sale;
@@ -78,16 +79,23 @@ public class Controller {
      * If it does, the item information can be found.
      * @param codeOfItem the information sent in to check if item exists i inventory.
      */
-    public ItemDTO enterItemIdentifier(int codeOfItem) throws ItemNotFoundInInventoryException {
-        if (externalInventorySystem.getTheItemFromInventory(codeOfItem) == null) {
-            throw new ItemNotFoundInInventoryException(codeOfItem);
-        }
+    public ItemDTO enterItemIdentifier(int codeOfItem) throws ItemNotFoundInInventoryException, InventoryFailureException {
+        if (externalInventorySystem.fakeInventorySystem.isEmpty()) {
+           throw new InventoryFailureException();
+       }
+       else if (externalInventorySystem.getItemCopyFromInventory(codeOfItem) == null) {
+        throw new ItemNotFoundInInventoryException(codeOfItem);
+       }
+    
+        else {
         Item item = externalInventorySystem.getItemCopyFromInventory(codeOfItem);
         
         sale.registerAllItems(item);
-
+    
         return item.getItemDTO(item);
-}
+        }
+    }
+
 
     /**
      * Shows the total price with VAT.
@@ -154,4 +162,11 @@ public class Controller {
         return sale.checkIfEligibleForDiscount(personalID);
 
     }
+
+
+public void clearInventory () {
+    externalInventorySystem.clearInventory();
+   
+}
+
 }

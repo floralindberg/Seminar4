@@ -108,13 +108,13 @@ public class ExternalInventorySystem {
             }
         }
 
-        /**
-         * Method to reset the inventory system.
+         /**
+         * Method to clear the inventory system.
          */
 
-        public void resetInventory(){
+         public void clearInventory (){
             fakeInventorySystem.clear();
-            initializeInventory();
+
         }
     }
 

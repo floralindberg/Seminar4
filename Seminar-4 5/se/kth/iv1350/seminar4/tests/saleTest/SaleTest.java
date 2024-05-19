@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import se.kth.iv1350.seminar4.source.controller.Controller;
 import se.kth.iv1350.seminar4.source.integration.Item;
 import se.kth.iv1350.seminar4.source.integration.ItemDTO;
-import se.kth.iv1350.seminar4.source.model.ItemNotFoundInInventoryException;
+import se.kth.iv1350.seminar4.source.integration.ItemNotFoundInInventoryException;
 import se.kth.iv1350.seminar4.source.model.Sale;
 
 public class SaleTest {

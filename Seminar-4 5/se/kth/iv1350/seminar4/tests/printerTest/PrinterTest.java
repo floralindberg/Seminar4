@@ -53,7 +53,7 @@ public class PrinterTest {
                                     "Apple 1 x 50.00: 50.00 SEK\n\n" +
                                     "Total : 50.00 SEK\nVAT : 12.50 SEK\n\n" +
                                     "Cash : 100.00 SEK\nChange : 50.00 SEK\n" +
-                                    "\nAmount in Register:150.0\n";
+                                    "\nAmount in Register:150,00\n";
     
 
             assertEquals(expectedOutput, printedOutput, "Unexpected output");

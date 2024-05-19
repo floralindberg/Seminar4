@@ -10,10 +10,9 @@ import se.kth.iv1350.seminar4.source.controller.Controller;
 import se.kth.iv1350.seminar4.source.integration.ExternalAccountingSystem;
 import se.kth.iv1350.seminar4.source.integration.ExternalInventorySystem;
 import se.kth.iv1350.seminar4.source.integration.Item;
-import se.kth.iv1350.seminar4.source.model.ItemNotFoundInInventoryException;
+import se.kth.iv1350.seminar4.source.integration.ItemNotFoundInInventoryException;
 import se.kth.iv1350.seminar4.source.model.Payment;
 import se.kth.iv1350.seminar4.source.model.Sale;
-
 
 public class ContrTest {
     private Sale sale;

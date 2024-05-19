@@ -5,8 +5,8 @@ import java.io.IOException;
 import se.kth.iv1350.seminar4.source.controller.Controller;
 import se.kth.iv1350.seminar4.source.integration.InventoryFailureException;
 import se.kth.iv1350.seminar4.source.integration.ItemNotFoundInInventoryException;
-import se.kth.iv1350.seminar4.source.model.notEligibleForDiscountException;
 import se.kth.iv1350.seminar4.source.util.*;
+import se.kth.iv1350.seminar4.source.model.NotEligibleForDiscountException;
 
 
 
@@ -46,7 +46,7 @@ public class View {
         } catch (ItemNotFoundInInventoryException e) {
             writeToLog(e);
         } catch (InventoryFailureException exc) {
-            writeToLog(exc);
+            writingtolog(exc);
         }
         System.out.println(contr.showTotalPriceAndVAT());
 
@@ -58,7 +58,7 @@ public class View {
         } catch (ItemNotFoundInInventoryException e) {
             writeToLog(e);
         } catch (InventoryFailureException exc) {
-            writeToLog(exc);
+            writingtolog(exc);
         }
         System.out.println(contr.showTotalPriceAndVAT());
 
@@ -70,7 +70,7 @@ public class View {
         } catch (ItemNotFoundInInventoryException e) {
             writeToLog(e);
         } catch (InventoryFailureException exc) {
-            writeToLog(exc);
+            writingtolog(exc);
         }
         System.out.println(contr.showTotalPriceAndVAT());
 
@@ -81,7 +81,7 @@ public class View {
             totalPrice = contr.checkDiscount(19201110);
             System.err.println("Discount has been applied");
 
-        } catch (notEligibleForDiscountException disExc) {
+        } catch (NotEligibleForDiscountException disExc) {
             
             System.out.print(disExc.getMessage() + "\n");
             
@@ -106,7 +106,7 @@ public class View {
         } catch (ItemNotFoundInInventoryException e) {
             writeToLog(e);
         } catch (InventoryFailureException exc) {
-            writeToLog(exc);
+            writingtolog(exc);
         }
             System.out.println(contr.showTotalPriceAndVAT());
 
@@ -118,7 +118,7 @@ public class View {
             } catch (ItemNotFoundInInventoryException e) {
                 writeToLog(e);
             } catch (InventoryFailureException exc) {
-                writeToLog(exc);
+                writingtolog(exc);
             }
                 System.out.println(contr.showTotalPriceAndVAT());
 
@@ -129,7 +129,7 @@ public class View {
                 } catch (ItemNotFoundInInventoryException e) {
                     writeToLog(e);
                 } catch (InventoryFailureException exc) {
-                    writeToLog(exc);
+                    writingtolog(exc);
                 }
                 System.out.println(contr.showTotalPriceAndVAT());
         
@@ -141,7 +141,7 @@ public class View {
             totalPrice = contr.checkDiscount(19721110);
             System.err.println("Discount has been applied");
             
-        } catch (notEligibleForDiscountException disExc) {
+        } catch (NotEligibleForDiscountException disExc) {
         
             System.out.print(disExc.getMessage() + "\n");
             
@@ -172,7 +172,7 @@ public class View {
         } catch (ItemNotFoundInInventoryException e) {
             writeToLog(e);
         } catch (InventoryFailureException exc) {
-            writeToLog(exc);
+            writingtolog(exc);
         }
         System.out.println(contr.showTotalPriceAndVAT());
 
@@ -183,7 +183,7 @@ public class View {
         } catch (ItemNotFoundInInventoryException e) {
             writeToLog(e);
         } catch (InventoryFailureException exc) {
-            writeToLog(exc);
+            writingtolog(exc);
         }
         System.out.println(contr.showTotalPriceAndVAT());
 
@@ -195,7 +195,7 @@ public class View {
         } catch (ItemNotFoundInInventoryException e) {
             writeToLog(e);
         } catch (InventoryFailureException exc) {
-            writeToLog(exc);
+            writingtolog(exc);
         }
         System.out.println(contr.showTotalPriceAndVAT());
 
@@ -216,6 +216,11 @@ public class View {
     private void writeToLog (Exception e) {
         System.out.printf("ItemNotFoundInInventoryException: %s%n",e.getMessage());
         logger.logExceptionsforSale(e);
+    }
+
+    private void writingtolog (Exception exc) {
+        System.out.printf("InventoryFailureException: %s%n",exc.getMessage());
+        logger.logExceptionsforSale(exc);
     }
 
 }

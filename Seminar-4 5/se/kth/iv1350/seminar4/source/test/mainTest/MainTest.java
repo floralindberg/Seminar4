@@ -1,4 +1,4 @@
-package se.kth.iv1350.seminar4.tests.mainTest;
+package se.kth.iv1350.seminar4.test.mainTest;
 
 import java.io.IOException;
 

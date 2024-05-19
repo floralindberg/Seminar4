@@ -1,11 +1,11 @@
-package se.kth.iv1350.seminar4.tests.accountingTest;
+package se.kth.iv1350.seminar4.test.integration;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import se.kth.iv1350.seminar4.source.integration.ExternalAccountingSystem;
+import se.kth.iv1350.seminar4.test.source.integration.ExternalAccountingSystem;
 
 public class AccountingTest {
     private ExternalAccountingSystem accountingSystem;

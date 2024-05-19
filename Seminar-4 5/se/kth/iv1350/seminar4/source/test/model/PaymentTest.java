@@ -1,4 +1,4 @@
-package se.kth.iv1350.seminar4.tests.paymentTest;
+package se.kth.iv1350.seminar4.test.model;
 
 import static org.junit.Assert.assertEquals;
 

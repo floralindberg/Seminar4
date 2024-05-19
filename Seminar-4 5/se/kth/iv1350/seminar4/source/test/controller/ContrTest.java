@@ -1,4 +1,4 @@
-package se.kth.iv1350.seminar4.tests.contrTest;
+package se.kth.iv1350.seminar4.test.controller;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.After;
@@ -12,9 +12,9 @@ import se.kth.iv1350.seminar4.source.integration.ExternalInventorySystem;
 import se.kth.iv1350.seminar4.source.integration.InventoryFailureException;
 import se.kth.iv1350.seminar4.source.integration.Item;
 import se.kth.iv1350.seminar4.source.integration.ItemNotFoundInInventoryException;
+import se.kth.iv1350.seminar4.source.model.NotEligibleForDiscountException;
 import se.kth.iv1350.seminar4.source.model.Payment;
 import se.kth.iv1350.seminar4.source.model.Sale;
-import se.kth.iv1350.seminar4.source.model.notEligibleForDiscountException;
 
 public class ContrTest {
     private Sale sale;
@@ -93,13 +93,13 @@ public class ContrTest {
             });
         }
 
-        @Test public void notEligibleForDiscountException() throws notEligibleForDiscountException {
+        @Test public void notEligibleForDiscountException() throws NotEligibleForDiscountException {
 
             assertDoesNotThrow(() -> {
                 contr.checkDiscount(19241201);
             });
 
-            assertThrows(notEligibleForDiscountException.class, () -> {
+            assertThrows(NotEligibleForDiscountException.class, () -> {
                 contr.checkDiscount(20011020);
             });
 

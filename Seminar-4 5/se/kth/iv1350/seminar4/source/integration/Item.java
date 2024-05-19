@@ -1,5 +1,9 @@
 package se.kth.iv1350.seminar4.source.integration;
 
+/**
+ * Represents an item in the inventory.
+ */
+
 public class Item {
     
     private int codeOfItem;

@@ -162,6 +162,10 @@ public class Controller {
         return sale.checkIfEligibleForDiscount(personalID);
 
     }
+
+    /**
+     * Method to clear the inventory.
+     */
     
     public void clearInventory () {
         externalInventorySystem.clearInventory();

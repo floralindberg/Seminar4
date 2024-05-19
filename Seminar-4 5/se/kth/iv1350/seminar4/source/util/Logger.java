@@ -7,8 +7,17 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
+/**
+ * Logs exceptions to a file.
+ */
+
 
 public class Logger {
+
+    /**
+     * Creates a new instance of the Logger.
+     * @throws IOException if the file cannot be created.
+     */
 
     
     public static final String LOG_FILE_NAME = "purchase_errors.txt";
@@ -19,6 +28,11 @@ public class Logger {
 
     }
 
+    /**
+     * Logs an exception to the file.
+     * @param exception The exception to be logged.
+     */
+
     public void logExceptionsforSale (Exception exception) {
 
         printwriter.println(timeOfException());
@@ -27,6 +41,10 @@ public class Logger {
         printwriter.println();
     }
 
+    /**
+     * Gets the time of the exception.
+     * @return the time of the exception
+     */
 
     public String timeOfException () {
         LocalDateTime now = LocalDateTime.now();

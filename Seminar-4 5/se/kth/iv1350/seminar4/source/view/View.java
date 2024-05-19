@@ -125,7 +125,7 @@ public class View {
         
         System.out.println("Customer wants discount");
         try {
-            totalPrice = contr.checkDiscount(19331110);
+            totalPrice = contr.checkDiscount(19800702);
             System.err.println("Discount has been applied");
             
         } catch (NotEligibleForDiscountException disExc) {
@@ -176,7 +176,19 @@ public class View {
             System.out.println(contr.showTotalPriceAndVAT());
         
         
-        totalPrice = contr.endSale();
+            totalPrice = contr.endSale();
+        
+            System.out.println("Customer wants discount");
+            try {
+                totalPrice = contr.checkDiscount(20071110);
+                System.err.println("Discount has been applied");
+    
+            } catch (NotEligibleForDiscountException disExc) {
+                
+                System.out.print(disExc.getMessage() + "\n");
+                
+    }
+            System.out.println("End Sale: ");
         System.out.println("End Sale: ");
         System.out.println("Total cost ( incl VAT ): "+ String.format("%.2f",totalPrice) + " SEK");
         System.out.println("Customer pays: "+ 100 + " SEK");

@@ -20,7 +20,7 @@ public class TotalRevenueFileOutput implements TotalRevenueObserver {
      * @return The instance of the TotalRevenueFileOutput.
      */
 
-    public static TotalRevenueFileOutput getTotalRevenueFileOutput() {
+    private static TotalRevenueFileOutput getTotalRevenueFileOutput() {
         return instance;
     }
 

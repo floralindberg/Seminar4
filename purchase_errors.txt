@@ -1,36 +1,20 @@
-20 maj 2024 00:48:32
+20 maj 2024 14:43:49
 Exception was thrown: 
 External inventory system cannot be reached 
 
-20 maj 2024 00:48:32
+20 maj 2024 14:43:49
+Exception was thrown: 
+Unable to add item 121 since it does not exist in inventory
+
+20 maj 2024 14:43:49
 Exception was thrown: 
 External inventory system cannot be reached 
 
-20 maj 2024 00:48:32
+20 maj 2024 14:43:49
 Exception was thrown: 
 External inventory system cannot be reached 
 
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
+20 maj 2024 14:43:49
 Exception was thrown: 
 External inventory system cannot be reached 
 

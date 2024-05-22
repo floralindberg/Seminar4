@@ -12,7 +12,7 @@ import se.kth.iv1350.seminar4.source.integration.TotalRevenueObserver;
 
 public class TotalRevenueFileOutput implements TotalRevenueObserver {
     private static final String LOG_FILE_NAME = "totalRevenue.txt";
-    private static final TotalRevenueFileOutput INSTANCE = new TotalRevenueFileOutput();
+    private static final TotalRevenueFileOutput instance = new TotalRevenueFileOutput();
     private PrintWriter logFile;
 
     /**
@@ -21,7 +21,7 @@ public class TotalRevenueFileOutput implements TotalRevenueObserver {
      */
 
     public static TotalRevenueFileOutput getTotalRevenueFileOutput() {
-        return INSTANCE;
+        return instance;
     }
 
     /**

@@ -17,10 +17,14 @@ public class View {
     private TotalRevenueFileOutput totalRevenueFileOutput;
     private Logger logger;
 
-/**
- * Constructor for view
- * @param contr is representing the controller class
- */
+ /**
+  * Creates a new instance of the View class.
+  * Initializes the logger, total revenue view, and total revenue file output.
+  * Adds observers to the controller for total revenue updates.
+  * @param contr The controller instance used in view 
+  * @throws IOException If an I/O error occurs while initializing the logger or the file output. 
+  */
+
 	public View (Controller contr) throws IOException {
 		this.contr = contr;
         this.logger = new Logger();

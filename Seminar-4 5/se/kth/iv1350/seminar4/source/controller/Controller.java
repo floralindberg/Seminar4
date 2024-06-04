@@ -74,17 +74,21 @@ public class Controller {
         return this.sale;
     }
 
+   
     /**
      * Checks if the entered item exists in the inventory.
      * If it does, the item information can be found.
      * @param codeOfItem the information sent in to check if item exists i inventory.
-     */
+      * @return The item with all of its attributes that has the same code of item.
+      * @throws ItemNotFoundInInventoryException If the item with the entered code of item doesnt exist in the inventory
+      * @throws InventoryFailureException If the inventory system is not reachable / empty. 
+      */
     public ItemDTO enterItemIdentifier(int codeOfItem) throws ItemNotFoundInInventoryException, InventoryFailureException {
         if (externalInventorySystem.fakeInventorySystem.isEmpty() || codeOfItem == 123) {
             throw new InventoryFailureException();
         }
-        else if (externalInventorySystem.getItemCopyFromInventory(codeOfItem) == null) {
-        throw new ItemNotFoundInInventoryException(codeOfItem);
+        else if (externalInventorySystem.fakeInventorySystem.isEmpty()) {
+            throw new ItemNotFoundInInventoryException(codeOfItem);
     }
     
         else {
@@ -150,12 +154,13 @@ public class Controller {
         return payment.getChange(totalAmount, paidAmount);
     }
 
-    /**
+   /**
      * Method to check if the customer is eligible for discount.
      * @param personalID the personal ID of the customer.
      * @return the total price with discount.
      * @return the total price without discount.
-     */
+      * @throws NotEligibleForDiscountException if the customer is not eligable for discount.
+      */
 
     public double checkDiscount(int personalID) throws NotEligibleForDiscountException {
 

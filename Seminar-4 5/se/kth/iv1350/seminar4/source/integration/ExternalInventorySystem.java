@@ -57,12 +57,14 @@ public class ExternalInventorySystem {
         return false;
     }
 
-        /**
+    
+       /**
          * Creates a copy with all information about the item
          * @param codeOfItem is the information sent in to search in the inventory system
          * @return The copy of the item if found in inventory system
-         */
-        public Item getItemCopyFromInventory(int codeOfItem) {
+         * @throws ItemNotFoundInInventoryException if the item is not found in the inventory. 
+          */
+          public Item getItemCopyFromInventory(int codeOfItem)  throws ItemNotFoundInInventoryException  {
             for (Item item : fakeInventorySystem) {
                 if (item.getCodeOfItem() == codeOfItem) {
                     Item itemCopy = new Item(item.getItemDTO(item));
@@ -70,8 +72,10 @@ public class ExternalInventorySystem {
                     return itemCopy;
                 }
             }
-            return null;
+            throw new ItemNotFoundInInventoryException(codeOfItem);
+        
         }
+
 
         /**
          * Getter function for getting the item from the inventory

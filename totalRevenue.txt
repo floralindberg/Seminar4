@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
 Total Revenue: 65,16
 Total Revenue: 85,16
 Total Revenue: 85,16
+=======
+Total Revenue: 0,00
+Total Revenue: 0,00
+Total Revenue: 0,00
+>>>>>>> Stashed changes

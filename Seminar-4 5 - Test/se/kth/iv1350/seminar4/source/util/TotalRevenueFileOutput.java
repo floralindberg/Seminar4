@@ -12,7 +12,11 @@ import se.kth.iv1350.seminar4.source.integration.TotalRevenueObserver;
 
 public class TotalRevenueFileOutput implements TotalRevenueObserver {
     private static final String LOG_FILE_NAME = "totalRevenue.txt";
+<<<<<<< Updated upstream
     private static TotalRevenueFileOutput instance = new TotalRevenueFileOutput();
+=======
+    private static final TotalRevenueFileOutput INSTANCE = new TotalRevenueFileOutput();
+>>>>>>> Stashed changes
     private PrintWriter logFile;
 
     /**
@@ -20,18 +24,27 @@ public class TotalRevenueFileOutput implements TotalRevenueObserver {
      * @return The instance of the TotalRevenueFileOutput.
      */
 
+<<<<<<< Updated upstream
     public static synchronized TotalRevenueFileOutput getTotalRevenueFileOutput() {
         if (instance == null) {
             instance = new TotalRevenueFileOutput();
         }
         return instance;
+=======
+    public static TotalRevenueFileOutput getTotalRevenueFileOutput() {
+        return INSTANCE;
+>>>>>>> Stashed changes
     }
 
     /**
      * Creates an instance of the TotalRevenueFileOutput.
      */
 
+<<<<<<< Updated upstream
     private TotalRevenueFileOutput() {
+=======
+    public TotalRevenueFileOutput() {
+>>>>>>> Stashed changes
         try {
             logFile = new PrintWriter(new FileWriter(LOG_FILE_NAME), true);
         } catch (IOException ex) {

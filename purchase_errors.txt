@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 3 juni 2024 14:46:09
 Exception was thrown: 
 External inventory system cannot be reached 
@@ -16,41 +15,6 @@ Exception was thrown:
 External inventory system cannot be reached 
 
 3 juni 2024 14:46:09
-=======
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
-Exception was thrown: 
-External inventory system cannot be reached 
-
-20 maj 2024 00:48:32
->>>>>>> Stashed changes
 Exception was thrown: 
 External inventory system cannot be reached 
 

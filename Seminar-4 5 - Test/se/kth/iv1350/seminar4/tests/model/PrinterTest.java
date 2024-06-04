@@ -1,4 +1,4 @@
-package se.kth.iv1350.seminar4.source.model;
+package se.kth.iv1350.seminar4.tests.model;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;

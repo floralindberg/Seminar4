@@ -1,4 +1,4 @@
-package se.kth.iv1350.seminar4.source.integration;
+package se.kth.iv1350.seminar4.tests.integration;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import se.kth.iv1350.seminar4.source.integration.ExternalInventorySystem;
 import se.kth.iv1350.seminar4.source.integration.Item;
 import se.kth.iv1350.seminar4.source.integration.ItemDTO;
+import se.kth.iv1350.seminar4.source.integration.ItemNotFoundInInventoryException;
 
 import java.util.ArrayList;
 
@@ -29,7 +30,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void testGetItemCopyFromInventory() {
+    public void testGetItemCopyFromInventory() throws ItemNotFoundInInventoryException{
         Item item = externalInventorySystem.getItemCopyFromInventory(111);
         assertNotNull(item,"The item wasn't created");
         assertEquals(111, item.getCodeOfItem(), "Wrong item was created");

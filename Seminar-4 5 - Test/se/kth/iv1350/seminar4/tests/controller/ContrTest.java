@@ -1,4 +1,4 @@
-package se.kth.iv1350.seminar4.source.controller;
+package se.kth.iv1350.seminar4.tests.controller;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.After;
@@ -135,7 +135,7 @@ public class ContrTest {
 	}
 
         @Test
-        public void testEndSale() {
+        public void testEndSale() throws ItemNotFoundInInventoryException{
         this.externalInventorySystem = ExternalInventorySystem.getInstance();
         double expectedTotalPriceVAT = 49.0;
         Item item1 = externalInventorySystem.getItemCopyFromInventory(111);
